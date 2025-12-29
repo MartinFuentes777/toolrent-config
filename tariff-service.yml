@@ -4,7 +4,7 @@ spring:
   application:
     name: tariff-service
   datasource:
-    url: jdbc:mysql://localhost:3306/tariffdb
+    url: jdbc:mysql://host.docker.internal:3306/tariffdb
     username: martin
     password: martin
   jpa:
