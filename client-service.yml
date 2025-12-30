@@ -3,10 +3,10 @@ server:
 spring:
   application:
     name: client-service
-  datasource:
-    url: jdbc:mysql://host.docker.internal:3306/clientdb
-    username: martin
-    password: martin
+datasource:
+    url: jdbc:mysql://mysql:3306/clientdb
+    username: client
+    password: client
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:

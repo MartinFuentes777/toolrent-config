@@ -5,9 +5,9 @@ spring:
   application:
     name: kardex-service
   datasource:
-    url: jdbc:mysql://host.docker.internal:3306/kardexdb
-    username: martin
-    password: martin
+    url: jdbc:mysql://mysql:3306/kardexdb
+    username: kardex
+    password: kardex
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:

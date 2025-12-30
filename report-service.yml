@@ -4,9 +4,9 @@ spring:
   application:
     name: report-service
   datasource:
-    url: jdbc:mysql://host.docker.internal:3306/reportdb
-    username: martin
-    password: martin
+    url: jdbc:mysql://mysql:3306/reportdb
+    username: report
+    password: report
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:

@@ -4,9 +4,9 @@ spring:
   application:
     name: tariff-service
   datasource:
-    url: jdbc:mysql://host.docker.internal:3306/tariffdb
-    username: martin
-    password: martin
+    url: jdbc:mysql://mysql:3306/tariffdb
+    username: tariff
+    password: tariff
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
