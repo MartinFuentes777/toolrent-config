@@ -1,0 +1,22 @@
+server:
+  port: 0
+spring:
+  application:
+    name: fine-service
+  datasource:
+    url: jdbc:mysql://mysql-fine:3306/finedb
+    username: fine
+    password: fine
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka
