@@ -1,0 +1,60 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-service
+
+  cloud:
+    gateway:
+      routes:
+        - id: inventory
+          uri: lb://inventory-service
+          predicates:
+            - Path=/tools/**
+        - id: loan
+          uri: lb://loan-service
+          predicates:
+            - Path=/loans/**
+        - id: client
+          uri: lb://client-service
+          predicates:
+            - Path=/api/v1/clients/**
+        - id: user
+          uri: lb://user-service
+          predicates:
+            - Path=/api/v1/users/**
+        - id: report
+          uri: lb://report-service
+          predicates:
+            - Path=/api/reports/**
+        - id: fine
+          uri: lb://fine-service
+          predicates:
+            - Path=/fines/**
+      default-filters:
+        - RemoveRequestHeader=Cookie
+      httpclient:
+        connect-timeout: 5000
+        response-timeout: 5000
+    loadbalancer:
+      retry:
+        enabled: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+    gateway:
+      enabled: true
