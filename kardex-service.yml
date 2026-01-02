@@ -26,3 +26,14 @@ eureka:
   instance: 
     lease-renewal-interval-in-seconds: 30
     lease-expiration-duration-in-seconds: 90
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+    gateway:
+      enabled: true
