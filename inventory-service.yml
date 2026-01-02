@@ -22,9 +22,10 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://eureka-server:8761/eureka
-    instance: 
-      lease-renewal-interval-in-seconds: 30
-      lease-expiration-duration-in-seconds: 90
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 30
+    lease-expiration-duration-in-seconds: 90
 
 management:
   endpoints:

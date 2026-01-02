@@ -9,7 +9,7 @@ spring:
     gateway:
       routes:
         - id: inventory
-          uri: lb://inventory-service
+          uri: lb://INVENTORY-SERVICE
           predicates:
             - Path=/tools/**
         - id: loan
@@ -17,7 +17,7 @@ spring:
           predicates:
             - Path=/loans/**
         - id: client
-          uri: lb://client-service
+          uri: lb://CLIENT-SERVICE
           predicates:
             - Path=/api/v1/clients/**
         - id: user
@@ -25,11 +25,11 @@ spring:
           predicates:
             - Path=/api/v1/users/**
         - id: report
-          uri: lb://report-service
+          uri: lb://REPORT-SERVICE
           predicates:
             - Path=/api/reports/**
         - id: fine
-          uri: lb://fine-service
+          uri: lb://FINE-SERVICE
           predicates:
             - Path=/fines/**
       default-filters:
@@ -47,6 +47,10 @@ eureka:
       defaultZone: http://eureka-server:8761/eureka
     register-with-eureka: true
     fetch-registry: true
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 30
+    lease-expiration-duration-in-seconds: 90
 
 management:
   endpoints:
