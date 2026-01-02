@@ -40,6 +40,10 @@ spring:
     loadbalancer:
       retry:
         enabled: true
+    discovery:
+      locator:
+        enabled: true
+        lower-case-service-id: true
 
 eureka:
   client:
