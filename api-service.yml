@@ -44,23 +44,18 @@ spring:
       locator:
         enabled: true
         lower-case-service-id: true
-    globalcors:
-      corsConfigurations:
-        '[/**]':
-          allowedOrigins: "http://localhost:3000"
-          allowedMethods: "*"
-          allowedHeaders: "*"
+
 eureka:
   client:
+    instance:
+      prefer-ip-address: true
+      lease-renewal-interval-in-seconds: 30
+      lease-expiration-duration-in-seconds: 90
+      instance-id: ${spring.application.name}:${spring.application.instance-id:${random.value}}
     service-url:
-      defaultZone: http://eureka-server:8761/eureka
-    register-with-eureka: true
-    fetch-registry: true
-  instance:
-    prefer-ip-address: true
-    lease-renewal-interval-in-seconds: 30
-    lease-expiration-duration-in-seconds: 90
-    instance-id: ${spring.application.name}:${spring.application.instance-id:${random.value}}
+      fetch-registry: true
+      register-with-eureka: true
+      defaultZone: http://eureka-server:8761/eureka/
 
 management:
   endpoints:
