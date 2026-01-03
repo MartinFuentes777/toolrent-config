@@ -37,3 +37,11 @@ management:
       show-details: always
     gateway:
       enabled: true
+
+logging:
+  level:
+    com.netflix.discovery: DEBUG
+    org.springframework.cloud.netflix.eureka: DEBUG
+    org.springframework.cloud.netflix.eureka.serviceregistry: DEBUG
+    org.springframework.cloud.client.discovery: DEBUG
+
