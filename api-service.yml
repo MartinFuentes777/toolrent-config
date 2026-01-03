@@ -37,6 +37,15 @@ spring:
       httpclient:
         connect-timeout: 5000
         response-timeout: 5000
+
+      # 👇 Configuración global de CORS
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "http://192.168.59.107:30692"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+
     loadbalancer:
       retry:
         enabled: true
@@ -51,7 +60,7 @@ eureka:
       prefer-ip-address: true
       lease-renewal-interval-in-seconds: 30
       lease-expiration-duration-in-seconds: 90
-      instance-id: ${spring.application.name}:${spring.application.instance-id:${random.value}}
+      instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
     service-url:
       fetch-registry: true
       register-with-eureka: true
