@@ -82,3 +82,9 @@ management:
       show-details: always
     gateway:
       enabled: true
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    reactor.netty.http.client: DEBUG
+    reactor.netty.http.server: DEBUG
