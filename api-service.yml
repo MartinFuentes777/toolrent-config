@@ -12,26 +12,32 @@ spring:
           uri: lb://inventory-service
           predicates:
             - Path=/tools/**
+          filters:
+            - StripPrefix= 1
         - id: loan
           uri: lb://loan-service
           predicates:
             - Path=/loans/**
+          filters:
+            - StripPrefix= 1
         - id: client
           uri: lb://client-service
           predicates:
             - Path=/api/v1/clients/**
-        - id: user
-          uri: lb://user-service
-          predicates:
-            - Path=/api/v1/users/**
+          filters:
+            - StripPrefix= 1
         - id: report
           uri: lb://report-service
           predicates:
             - Path=/api/reports/**
+          filters:
+            - StripPrefix= 1
         - id: fine
           uri: lb://fine-service
           predicates:
             - Path=/fines/**
+          filters:
+            - StripPrefix= 1
       default-filters:
         - RemoveRequestHeader=Cookie
       httpclient:
