@@ -28,6 +28,10 @@ spring:
           uri: lb://fine-service
           predicates:
             - Path=/fines/**
+        - id: tariff
+          uri: lb://tariff-service
+          predicates:
+            - Path=/tariffs/**
       default-filters:
         - RemoveRequestHeader=Cookie
       httpclient:
